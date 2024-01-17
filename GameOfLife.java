@@ -14,7 +14,7 @@ public class GameOfLife {
 
 		//test1(fileName);
 		 //test2(fileName);
-		//test3(fileName, 3);
+		test3(fileName, 3);
 		//// play(fileName);
 	}
 	
