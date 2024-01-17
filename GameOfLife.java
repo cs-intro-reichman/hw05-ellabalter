@@ -12,8 +12,8 @@ public class GameOfLife {
 		//// Uncomment the test that you want to execute, and re-compile.
 		//// (Run one test at a time).
 
-		test1(fileName);
-		 test2(fileName);
+		//test1(fileName);
+		 //test2(fileName);
 		//test3(fileName, 3);
 		//// play(fileName);
 	}
@@ -104,21 +104,25 @@ public class GameOfLife {
 	// Assumes that j is at least 1 and at most the number of columns in the board - 1. 
 	// Uses the count(board,i,j) function to count the number of alive neighbors.
 	public static int cellValue(int[][] board, int i, int j) {
+		boolean alive = false;
+		int friends = count(board, i, j);
+		if (board[i][j] == 1){
+			alive = true;
+		}
+		if(alive) {
+			if (friends < 2 || friends > 3) {
+				return 0;
+			} else {
+				return 1;
+			}
+		}
+			else if (friends == 3) {
+				return 1;
+		}
 
-		if (board[i][j] == 1 && count(board, i, j) < 2 ){
-			board[i][j] = 0;
+			else {
+				return 0;
 		}
-		if(board[i][j] == 1 && ((count(board, i, j) == 2 ) || (count(board, i, j) == 3)) ){
-			board[i][j] = 1;
-		}
-		if(board[i][j] == 1 && count(board, i, j) > 3){
-			board[i][j] = 0;
-		}
-		if(board[i][j] == 0 && (count(board, i, j) == 3 ) ){
-			board[i][j] = 1;
-		}
-		//// Replace the following statement with your code.
-		return board[i][j];
 	}
 	
 	// Counts and returns the number of living neighbors of the given cell
