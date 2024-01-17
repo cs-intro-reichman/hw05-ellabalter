@@ -164,9 +164,9 @@ public class GameOfLife {
     public static void print(int[][] arr) {
 		for(int i = 0; i < arr.length; i++){
 			for(int j = 0; j < arr[0].length; j++){
-				System.out.printf("%d ", arr[i][j]);
+				System.out.printf("%d  ", arr[i][j]);
 			}
-			System.out.printf("%n");
+			System.out.printf("%n ");
 		}
 	}
 		
