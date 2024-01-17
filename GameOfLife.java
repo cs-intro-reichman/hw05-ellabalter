@@ -65,12 +65,12 @@ public class GameOfLife {
 		int rows = Integer.parseInt(in.readLine());
 		int cols = Integer.parseInt(in.readLine());
 		int[][] board = new int[rows + 2][cols + 2];
-		int i = 0;
+		int i = 1;
 		while (in.hasNextLine()) {
 			String x = in.readLine();
-			for (int j = 1; j < x.length() - 1; j++) {
+			for (int j = 1; j < x.length(); j++) {
 				if (x.charAt(j) == 'x') {
-					board[i][j] = 1;
+					board[i][j + 1] = 1;
 				}
 			}
 			i++;
@@ -161,9 +161,9 @@ public class GameOfLife {
 	public static void print(int[][] arr) {
 		for (int i = 1; i < arr.length - 1; i++) {
 			for (int j = 1; j < arr[0].length - 1; j++) {
-				System.out.print(arr[i][j] + "  ");
+				System.out.printf("  %d", arr[i][j]);
 			}
-			System.out.print(" ");
+			System.out.printf("%n");
 		}
 	}
 
