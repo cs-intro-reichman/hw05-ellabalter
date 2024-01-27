@@ -68,6 +68,7 @@ public class GameOfLife {
 		int i = 1;
 		while (in.hasNextLine()) {
 			String x = in.readLine();
+			// #feedback - you need to start this for with "j=0" to get the furst character in the line.
 			for (int j = 1; j < x.length(); j++) {
 				if (x.charAt(j) == 'x') {
 					board[i][j + 1] = 1;
@@ -87,6 +88,7 @@ public class GameOfLife {
 		int c = board[0].length;
 		int board2[][] = new int[r][c];
 		for (int i = 1; i < board.length - 1; i++) {
+			// #feedback - you need the number of columns - board[0].length, or c.
 			for (int j = 1; j < board.length - 1; j++) {
 				board2[i][j] = cellValue(board, i, j);
 			}
@@ -106,6 +108,7 @@ public class GameOfLife {
 	public static int cellValue(int[][] board, int i, int j) {
 		boolean alive = false;
 		int friends = count(board, i, j);
+		// #feedback - you can remove the "alive" variable and use "board[i][j] == 1" directly.
 		if (board[i][j] == 1) {
 			alive = true;
 		}
@@ -127,6 +130,7 @@ public class GameOfLife {
 	// Assumes that i is at least 1 and at most the number of rows in the board - 1. 
 	// Assumes that j is at least 1 and at most the number of columns in the board - 1. 
 	public static int count(int[][] board, int i, int j) {
+		// #feedback - it is usually better to use for in these case to avoid these multiple "if"s, since it's easier to forget a cell or have the wrong row/col.
 		int friends = 0;
 		if (board[i + 1][j] == 1) {
 			friends++;
